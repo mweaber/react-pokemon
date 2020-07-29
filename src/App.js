@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./components/layout/Navigation";
 import Jumbo from "./components/layout/Jumbo";
@@ -6,8 +6,8 @@ import Search from './components/pokemon/Search';
 import About from "./components/pages/About";
 import "./App.css";
 
-function App() {
 
+const App = () => {
   return (
     <Router>
       <div className="App">
@@ -24,6 +24,8 @@ function App() {
       </div>
     </Router>
   );
+
 }
+
 
 export default App;
