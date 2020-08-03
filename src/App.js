@@ -4,6 +4,7 @@ import Navigation from "./components/layout/Navigation";
 import Jumbo from "./components/layout/Jumbo";
 import Search from './components/pokemon/Search';
 import About from "./components/pages/About";
+import PokemonItem from './components/pokemon/PokemonItem';
 import "./App.css";
 
 
@@ -17,6 +18,7 @@ const App = () => {
             <Fragment>
               <Jumbo />
               <Search />
+              <PokemonItem />
             </Fragment>
           </Route>
           <Route exact path="/about" component={About} />

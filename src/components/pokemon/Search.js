@@ -2,9 +2,6 @@ import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import PropTypes from 'prop-types'
-import axios from 'axios';
-
 
 
 const Search =() => {
@@ -15,14 +12,8 @@ const Search =() => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(text)
-    // searchPokemon(text);
     setText('')
   };
-
-  // const searchPokemon = async (text) => {
-  //   const res = await axios.get( `https://pokeapi.co/api/v2/pokemon/${text}`)
-  // }
-
 
     return (
       <Container>
@@ -42,10 +33,6 @@ const Search =() => {
       </Container>
     );
 
-}
-
-Search.propTypes ={
-    searchPokemon: PropTypes.func.isRequired,
 }
 
 export default Search;
