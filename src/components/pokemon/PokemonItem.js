@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const PokemonItem = ({pokemon:{name, id, sprite} }) => {      
-        return (
-            <div>
-                <p>{id}</p>
-                <p>{name}</p>
-                <img src={sprite} alt="Pokemon" />
-            </div>
-        )
+const PokemonItem = ({ pokemon: { name, id, url } }) => {
+    return (
+        <div>
+            <p>{id}</p>
+            <p>{name}</p>
+            <p>{url}</p>
+        </div>
+    )
 }
 
 PokemonItem.propTypes = {
