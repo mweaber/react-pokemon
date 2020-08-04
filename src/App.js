@@ -4,7 +4,9 @@ import Navigation from "./components/layout/Navigation";
 import Jumbo from "./components/layout/Jumbo";
 import Search from './components/pokemon/Search';
 import About from "./components/pages/About";
-import PokemonItem from './components/pokemon/PokemonItem';
+import Pokemon from './components/pokemon/Pokemon';
+
+import Container from "react-bootstrap/Container";
 import "./App.css";
 
 
@@ -18,7 +20,9 @@ const App = () => {
             <Fragment>
               <Jumbo />
               <Search />
-              <PokemonItem />
+              <Container>
+                <Pokemon />
+              </Container>
             </Fragment>
           </Route>
           <Route exact path="/about" component={About} />
