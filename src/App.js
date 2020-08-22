@@ -12,13 +12,19 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    pokemon: []
+    pokemon: [],
+
   }
 
   async componentDidMount() {
-    const res = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100')
-    this.setState({ pokemon: res.data.results })
-    console.log(this.state.pokemon)
+    const res = await axios.get('https://pokeapi.co/api/v2/pokemon/1' )
+    console.log(res.data);
+  }
+
+  async searchPokemon(text) {
+    console.log(text)
+    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${text}`)
+    console.log(res.data)
   }
 
 
@@ -29,11 +35,11 @@ class App extends React.Component {
           <Navigation />
           <Switch>
             <Route exact path="/">
-              <Fragment>/               
+              <Fragment>
                 <Jumbo />
-                <Search />
+                <Search searchPokemon={this.searchPokemon} />
                 <Container>
-                  <Pokemon pokemon={this.state.pokemon}/>
+                  <Pokemon pokemon={this.state.pokemon} />
                 </Container>
               </Fragment>
             </Route>
@@ -44,44 +50,5 @@ class App extends React.Component {
     )
   }
 }
-// const App = () => {
-//   const [pokeRes, setPokeRes] = useState([])
-
-//   useEffect(() => {
-//     console.log(pokeRes);
-//     async function getPokemon() {
-//       const res = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100')
-//       console.log(res.data);
-//       setPokeRes(res.data)
-
-//     }
-
-//     getPokemon()
-//     //eslint-disable-next-line
-//   }, []);
-
-
-//   return (
-//     <Router>
-//       <div className="App">
-//         <Navigation />
-//         <Switch>
-//           <Route exact path="/">
-//             <Fragment>
-//               <Jumbo />
-//               <Search />
-//               <Container>
-//                 <Pokemon pokeRes={pokeRes}/>
-//               </Container>
-//             </Fragment>
-//           </Route>
-//           <Route exact path="/about" component={About} />
-//         </Switch>
-//       </div>
-//     </Router>
-//   );
-
-// }
-
 
 export default App;

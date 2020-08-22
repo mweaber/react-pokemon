@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const PokemonItem = ({ pokemon: { name, id, url } }) => {
+const PokemonItem = () => {
     return (
         <div>
-            <p>{id}</p>
-            <p>{name}</p>
-            <p>{url}</p>
+            <p>{this.props.pokemon.order}</p>
+            <p>{}</p>
+            <p>{}</p>
         </div>
     )
 }
