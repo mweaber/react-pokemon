@@ -7,28 +7,18 @@ import About from "./components/pages/About";
 import Pokemon from './components/pokemon/Pokemon';
 
 import axios from 'axios';
-import Container from "react-bootstrap/Container";
 import "./App.css";
 
-class App extends React.Component {
-  state = {
-    pokemon: [],
+const App = () => {
 
-  }
+  const [pokemon, setPokemon] = useState({}) 
 
-  async componentDidMount() {
-    const res = await axios.get('https://pokeapi.co/api/v2/pokemon/1' )
-    console.log(res.data);
-  }
-
-  async searchPokemon(text) {
-    console.log(text)
+ const searchPokemon = async(text) => {
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${text}`)
     console.log(res.data)
+    setPokemon(res.data)
   }
 
-
-  render() {
     return (
       <Router>
         <div className="App">
@@ -37,18 +27,18 @@ class App extends React.Component {
             <Route exact path="/">
               <Fragment>
                 <Jumbo />
-                <Search searchPokemon={this.searchPokemon} />
-                <Container>
-                  <Pokemon pokemon={this.state.pokemon} />
-                </Container>
+                <Search searchPokemon={searchPokemon} />
               </Fragment>
             </Route>
             <Route exact path="/about" component={About} />
+            <Route exact path="/pokemon/:pokemon" render={props => (
+              <Pokemon {...props} getPokemon={this.getPokemon} />
+            )} />
           </Switch>
         </div>
       </Router>
     )
-  }
+
 }
 
 export default App;

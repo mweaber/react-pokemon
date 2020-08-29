@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import PokemonItem from './PokemonItem'
+// import PokemonItem from './PokemonItem'
 
 class Pokemon extends Component {
     render() {
         return (
             <div style={userStyle}>
-                {this.props.pokemon.map(pokemon => (
-                    <PokemonItem key={pokemon.id} pokemon={pokemon}/>
-                ))}
+                <p>Pokemon will go here</p>
             </div>
         )
     }
