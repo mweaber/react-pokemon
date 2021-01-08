@@ -1,10 +1,13 @@
 import React from 'react'
+import {Container, Row, Col} from 'react-bootstrap'
+
+
 
 const HomeScreen = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <h1>Search for Pokemon</h1>
+        </>
     )
 }
 
